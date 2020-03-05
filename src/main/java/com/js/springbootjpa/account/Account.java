@@ -14,6 +14,36 @@ public class Account {
 
     private String password;
 
+    private String email;
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Account)) return false;
+        Account account = (Account) o;
+        return Objects.equals(getId(), account.getId()) &&
+                Objects.equals(getUserName(), account.getUserName()) &&
+                Objects.equals(getPassword(), account.getPassword()) &&
+                Objects.equals(getEmail(), account.getEmail());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getId(), getUserName(), getPassword(), getEmail());
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
     public Long getId() {
         return id;
     }
@@ -34,18 +64,4 @@ public class Account {
         this.password = password;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Account)) return false;
-        Account account = (Account) o;
-        return Objects.equals(getId(), account.getId()) &&
-                Objects.equals(getUserName(), account.getUserName()) &&
-                Objects.equals(getPassword(), account.getPassword());
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(getId(), getUserName(), getPassword());
-    }
 }

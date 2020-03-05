@@ -1,0 +1,1 @@
+insert into account (email, password, user_name, id) values ('aaa@naver.com', '1234', 'whiteship2', 1)
